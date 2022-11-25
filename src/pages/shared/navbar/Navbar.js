@@ -29,12 +29,7 @@ const Header = () => {
       {user?.email ? (
         <>
           <li className="font-semibold">
-            <Link to="/myReviews">My reviews</Link>
-          </li>
-          <li className="font-semibold">
-            <Link to="/addService">Add Service</Link>
-          </li>
-          <li className="font-semibold">
+            <Link to="/dashboard">Dashboard</Link>
             <button onClick={handlerLogout} className="btb btn-ghost">
               Log Out
             </button>

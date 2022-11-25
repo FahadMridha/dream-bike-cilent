@@ -3,7 +3,6 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-
 import { AuthContext } from "../../context/AuthPovider";
 import useToken from "../../hooks/useToken";
 
@@ -18,11 +17,11 @@ const SignUp = () => {
   const googleProvider = new GoogleAuthProvider();
   const [signupError, setSignupError] = useState("");
   const navigate = useNavigate();
-  const [createUserEmail, setCreateUserEmail] = useState("");
-  const [token] = useToken(createUserEmail);
-  if (token) {
-    navigate("/");
-  }
+  // const [createUserEmail, setCreateUserEmail] = useState("");
+  // const [token] = useToken(createUserEmail);
+  // if (token) {
+  //   navigate("/");
+  // }
   const handlerSignUp = (data) => {
     console.log(data);
     setSignupError("");
@@ -66,7 +65,8 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setCreateUserEmail(email);
+        console.log(data);
+        // setCreateUserEmail(email);
       });
   };
 
