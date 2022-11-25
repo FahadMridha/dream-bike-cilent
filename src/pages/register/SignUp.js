@@ -122,8 +122,8 @@ const SignUp = () => {
               className="select w-full max-w-xs mt-2"
             >
               <option></option>
-              <option>Buyer</option>
-              <option>Seller</option>
+              <option>buyer</option>
+              <option>seller</option>
             </select>
             {errors.role && (
               <p className="text-red-600">{errors.role.message}</p>

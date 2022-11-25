@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const UseSeller = (email) => {
+const useSeller = (email) => {
   const [isSeller, setIsSeller] = useState(false);
   const [isSellerLoading, setIsSellerLoading] = useState(true);
 
@@ -10,7 +10,7 @@ const UseSeller = (email) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          setIsSeller(data.isAdmin);
+          setIsSeller(data.isSaller);
           setIsSellerLoading(false);
         });
     }
@@ -18,4 +18,4 @@ const UseSeller = (email) => {
   return [isSeller, isSellerLoading];
 };
 
-export default UseSeller;
+export default useSeller;

@@ -2,6 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layout/dashboard/DashboardLayout";
 import Main from "../layout/main/Main";
 import AllProducts from "../pages/allProducts/AllProducts";
+import AddProducts from "../pages/dashboard/addProducts/AddProducts";
+import AllSeller from "../pages/dashboard/allSeller/AllSeller";
+import AllUser from "../pages/dashboard/allUsers/AllUser";
+import MyOrder from "../pages/dashboard/myOrder/MyOrder";
+import MyProducts from "../pages/dashboard/myProducts/MyProducts";
 import Home from "../pages/home/home/Home";
 
 import Login from "../pages/login/Login";
@@ -39,45 +44,37 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
-    // children: [
-    //   {
-    //     path: "/dashboard",
-    //     element: <MyAppiontments />,
-    //   },
-    //   {
-    //     path: "/dashboard/allusers",
-    //     element: (
-    //       <AdminRoutes>
-    //         <AllUsers />
-    //       </AdminRoutes>
-    //     ),
-    //   },
-    //   {
-    //     path: "/dashboard/adddoctor",
-    //     element: (
-    //       <AdminRoutes>
-    //         <AddDoctor />
-    //       </AdminRoutes>
-    //     ),
-    //   },
-    //   {
-    //     path: "/dashboard/managedoctors",
-    //     element: (
-    //       <AdminRoutes>
-    //         <ManageDoctors />
-    //       </AdminRoutes>
-    //     ),
-    //   },
-    //   {
-    //     path: "/dashboard/payment/:id",
-    //     element: (
-    //       <AdminRoutes>
-    //         "<Payment />"
-    //       </AdminRoutes>
-    //     ),
-    //     loader: ({ params }) =>
-    //       fetch(`http://localhost:5000/bookings/${params.id}`),
-    //   },
-    // ],
+    children: [
+      {
+        path: "/dashboard",
+        element: <MyOrder />,
+      },
+      {
+        path: "/dashboard/myproduct",
+        element: <MyProducts />,
+      },
+      {
+        path: "/dashboard/allusers",
+        element: <AllUser />,
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: <AddProducts />,
+      },
+      {
+        path: "/dashboard/allsellers",
+        element: <AllSeller />,
+      },
+      // {
+      //   path: "/dashboard/payment/:id",
+      //   element: (
+      //     <AdminRoutes>
+      //       "<Payment />"
+      //     </AdminRoutes>
+      //   ),
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/bookings/${params.id}`),
+      // },
+    ],
   },
 ]);

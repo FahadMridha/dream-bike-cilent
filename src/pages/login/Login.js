@@ -14,16 +14,16 @@ const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const [loginError, setLoginError] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [token] = useToken(loginEmail);
+  // const [loginEmail, setLoginEmail] = useState("");
+  // const [token] = useToken(loginEmail);
 
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  // if (token) {
+  //   navigate(from, { replace: true });
+  // }
   const handleLogin = (data) => {
     console.log(data);
     setLoginError("");
@@ -32,7 +32,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setLoginEmail(email);
+        // setLoginEmail(email);
       })
       .catch((error) => {
         console.log(error.massage);
