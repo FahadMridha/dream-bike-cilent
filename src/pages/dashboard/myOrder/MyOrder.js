@@ -23,16 +23,15 @@ const MyOrder = () => {
 
   return (
     <div>
-      <h3 className="text-3xl mb-5">My Appiontments</h3>
+      <h3 className="text-3xl mb-5">My Orders</h3>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
               <th></th>
-              <th>Name</th>
-              <th>Treatment</th>
-              <th>Date</th>
-              <th>Time</th>
+              <th>Picture</th>
+              <th>Titale</th>
+              <th>Price</th>
               <th>Payment</th>
             </tr>
           </thead>
@@ -41,12 +40,18 @@ const MyOrder = () => {
               bookings?.map((booking, i) => (
                 <tr key={booking._id}>
                   <th>{i + 1}</th>
-                  <td>{booking.patient}</td>
-                  <td>{booking.tretment}</td>
-                  <td>{booking.appiontmentDate}</td>
-                  <td>{booking.slot}</td>
                   <td>
-                    {booking.price && !booking.paid && (
+                    <div className="avatar">
+                      <div className="w-24 rounded-full">
+                        <img src={booking.productImg} alt="" />
+                      </div>
+                    </div>
+                  </td>
+                  <td>{booking.productName}</td>
+                  <td>{booking.resalePrice} BDT</td>
+
+                  {/* <td>
+                    {booking.resalerice && !booking.paid && (
                       <Link to={`/dashboard/payment/${booking._id}`}>
                         <button className="btn btn-primary btn-sm">Pay</button>
                       </Link>
@@ -54,7 +59,7 @@ const MyOrder = () => {
                     {booking.price && booking.paid && (
                       <button className="btn btn-success btn-sm ">Paid</button>
                     )}
-                  </td>
+                  </td> */}
                 </tr>
               ))}
           </tbody>

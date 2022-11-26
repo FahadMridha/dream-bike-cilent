@@ -17,7 +17,7 @@ const ProductsCard = ({ product }) => {
         <p>Seller's name: {product.sellerName}</p>
 
         <div className="card-actions justify-end">
-          {/* <ButtonComponent>Book Now</ButtonComponent> */}
+          {/* <ButtonComponent htmlFor="booking-modal">Book Now</ButtonComponent> */}
           <label htmlFor="booking-modal" className="btn">
             open modal
           </label>

@@ -20,7 +20,7 @@ const AllBuyer = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-          toast.success(`Doctor ${buyer.name} Deleted Successfully`);
+          toast.success(`Buyer ${buyer.name} Deleted Successfully`);
           refetch();
         }
         console.log(data);
