@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthPovider";
 import useToken from "../../hooks/useToken";
@@ -14,7 +15,7 @@ const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const [loginError, setLoginError] = useState("");
-  // const [loginEmail, setLoginEmail] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
   // const [token] = useToken(loginEmail);
 
   const location = useLocation();
@@ -25,14 +26,15 @@ const Login = () => {
   //   navigate(from, { replace: true });
   // }
   const handleLogin = (data) => {
-    console.log(data);
+    // console.log(data);
     setLoginError("");
     const { email, password } = data;
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        // setLoginEmail(email);
+        // console.log(user);
+        toast.success("Successfully user login");
+        setLoginEmail(email);
       })
       .catch((error) => {
         console.log(error.massage);
@@ -41,8 +43,32 @@ const Login = () => {
   };
   const handlerGoogleSignIn = (provider) => {
     googleSignIn(provider)
-      .then(() => {})
+      .then((result) => {
+        const user = result.user;
+        toast.success("Successfully user Login");
+        const name = user?.displayName;
+        const email = user?.email;
+        const role = "buyer";
+        saveUserToDb(name, email, role);
+        console.log(user);
+      })
       .catch((error) => console.log(error));
+  };
+
+  const saveUserToDb = (name, email, role) => {
+    const user = { name, email, role };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setLoginEmail(email);
+      });
   };
 
   return (

@@ -30,10 +30,14 @@ const AddProducts = () => {
           console.log(imgData.data.url);
           const product = {
             email: user?.email,
-            name: data.name,
-            location: data.location,
+            ProductName: data.productName,
+            condition: data.condition,
             resalePrice: data.resalePrice,
             originalPrice: data.originalPrice,
+            phoneNumber: data.phoneNumber,
+            location: data.location,
+            description: data.description,
+            yearOfPurchase: data.yearOfPurchase,
             yearOfUse: data.yearOfUse,
             categoryID: data.categoryID,
             postTime: new Intl.DateTimeFormat("en-US", {
@@ -58,7 +62,6 @@ const AddProducts = () => {
               console.log(data);
               if (data.acknowledged) {
                 toast.success(`${product.name} is added Successfully`);
-
                 navigate("/dashboard/myproduct");
               }
             });
@@ -67,7 +70,7 @@ const AddProducts = () => {
   };
 
   return (
-    <div className=" w-96 p-8">
+    <div className=" w-96 p-8 bg-green-600">
       <h2 className="text-4xl">ADD PRODUCT</h2>
 
       <form onSubmit={handleSubmit(handlarAddProduct)}>
@@ -79,18 +82,71 @@ const AddProducts = () => {
           <input
             placeholder="Product Name"
             type="text"
-            {...register("name", {
+            {...register("productName", {
               required: "Name is required",
             })}
             className="input input-bordered w-full max-w-xs"
           />
-          {errors.name && <p className="text-red-600">{errors.name.message}</p>}
+          {errors.productName && (
+            <p className="text-red-600">{errors.productName.message}</p>
+          )}
         </div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">Product Condition</span>
+          </label>
+          <select
+            placeholder="Product Condition"
+            type="text"
+            {...register("condition", {
+              required: "Price is required",
+            })}
+            className="select input-bordered w-full max-w-xs"
+          >
+            <option disabled selected>
+              Pick Product Condition
+            </option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Fair</option>
+          </select>
+          {errors.condition && (
+            <p className="text-red-600">{errors.condition.message}</p>
+          )}
+        </div>
+        <div className="form-control w-full max-w-xs">
+          <label for="phone">Enter your phone number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            className="input input-bordered w-full max-w-xs"
+            {...register("phoneNumber", {
+              required: "Phone Number is required",
+            })}
+          ></input>
+          {errors.phoneNumber && (
+            <p className="text-red-600">{errors.phoneNumber.message}</p>
+          )}
+        </div>
+        <div className="form-control w-full max-w-xs p-2">
+          <label for="phone">Your Product Description</label>
+          <textarea
+            className="textarea textarea-bordered w-full max-w-xs"
+            placeholder="Product Description "
+            {...register("description", {
+              required: "Description is required",
+            })}
+          ></textarea>
+          {errors.description && (
+            <p className="text-red-600">{errors.description.message}</p>
+          )}
+        </div>
+
         <div className="form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Location</span>
           </label>
-
           <input
             placeholder="Your Location"
             type="text"
@@ -120,7 +176,7 @@ const AddProducts = () => {
             <p className="text-red-600">{errors.resalePrice.message}</p>
           )}
         </div>
-        <div className="form-control w-full max-w-xs">
+        {/* <div className="form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Name</span>
           </label>
@@ -134,7 +190,7 @@ const AddProducts = () => {
             className="input input-bordered w-full max-w-xs"
           />
           {errors.name && <p className="text-red-600">{errors.name.message}</p>}
-        </div>
+        </div> */}
         <div className="form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Original Price</span>
@@ -169,18 +225,38 @@ const AddProducts = () => {
             <p className="text-red-600">{errors.yearOfUse.message}</p>
           )}
         </div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">Year Of Purchase</span>
+          </label>
+
+          <input
+            placeholder="Year of Purchase"
+            type="text"
+            {...register("yearOfPurchase", {
+              required: "This is required",
+            })}
+            className="input input-bordered w-full max-w-xs"
+          />
+          {errors.yearOfPurchase && (
+            <p className="text-red-600">{errors.yearOfPurchase.message}</p>
+          )}
+        </div>
 
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Category id</span>
+            <span className="label-text">Category</span>
           </label>
           <select
             {...register("categoryID")}
             className="select input-bordered w-full max-w-xs"
           >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+            <option disabled selected>
+              <span>Pick one if you want YAMAHA-1,SUZUKI-2,HONDA-3</span>
+            </option>
+            <option value="1">YAMAHA</option>
+            <option value="2">SUZUKI</option>
+            <option value="3">HONDA</option>
           </select>
         </div>
         <div className="form-control w-full max-w-xs">
@@ -217,7 +293,7 @@ const AddProducts = () => {
         </div>
 
         <input
-          className="btn btn-accent w-full mt-2"
+          className="btn bg-green-800 hover:bg-green-700 w-full mt-2"
           value="ADD PRODUCT"
           type="submit"
         />

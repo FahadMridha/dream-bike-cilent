@@ -49,6 +49,11 @@ const SignUp = () => {
     googleSignIn(googleProvider)
       .then((result) => {
         const user = result.user;
+        toast.success("Successfully create user");
+        const name = user?.displayName;
+        const email = user?.email;
+        const role = "buyer";
+        saveUserToDb(name, email, role);
         console.log(user);
       })
       .catch((error) => console.log(error));
