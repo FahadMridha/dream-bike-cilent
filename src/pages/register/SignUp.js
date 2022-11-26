@@ -17,7 +17,7 @@ const SignUp = () => {
   const googleProvider = new GoogleAuthProvider();
   const [signupError, setSignupError] = useState("");
   const navigate = useNavigate();
-  // const [createUserEmail, setCreateUserEmail] = useState("");
+  const [createUserEmail, setCreateUserEmail] = useState("");
   // const [token] = useToken(createUserEmail);
   // if (token) {
   //   navigate("/");
@@ -66,7 +66,7 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        // setCreateUserEmail(email);
+        setCreateUserEmail(email);
       });
   };
 
