@@ -18,10 +18,14 @@ const Advertised = () => {
     return <Spinner></Spinner>;
   }
   return (
-    <div>
-      {/* <h4>Advertised {advertise.length}</h4> */}
-      {advertise &&
-        advertise.map((adv) => <AdvertiseCard key={adv._id} advertise={adv} />)}
+    <div className="m-6">
+      <h4 className="text-center">Advertised {advertise.length}</h4>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        {advertise &&
+          advertise.map((adv) => (
+            <AdvertiseCard key={adv._id} advertise={adv} />
+          ))}
+      </div>
     </div>
   );
 };

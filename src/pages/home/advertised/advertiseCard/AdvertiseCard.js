@@ -26,9 +26,7 @@ const AdvertiseCard = ({ advertise }) => {
           <p>{description} </p>
           <p>Post Date:{postTime}</p>
           <p>Location: {location}</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+          <div className="card-actions justify-end"></div>
         </div>
       </div>
     </>
