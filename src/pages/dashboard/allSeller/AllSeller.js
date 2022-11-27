@@ -65,7 +65,7 @@ const AllSeller = () => {
               <th></th>
               <th>Name</th>
               <th>Email</th>
-              <th>Admin</th>
+              <th>Status</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -78,10 +78,10 @@ const AllSeller = () => {
                 <td>
                   {seller?.role !== "admin" && (
                     <button
-                      //   onClick={() => handleMakeAdmin(user._id)}
+                      //   onClick={() => handleMakeVerify(user._id)}
                       className="btn btn-xs btn-primary"
                     >
-                      Make Admin
+                      Make Verify
                     </button>
                   )}
                 </td>
