@@ -38,11 +38,9 @@ const BookingModal = ({ product }) => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          //   setTretment(null);
-          toast.success("booking comfired");
+          //   setForm(null);
+          toast.success("Your product is Booked");
           //   refetch();
-        } else {
-          toast.error(data.message);
         }
       })
       .catch((error) => console.log(error));

@@ -33,24 +33,25 @@ const AllSeller = () => {
         console.log(data);
       });
   };
-  //   const handleMakeAdmin = (id) => {
-  //     if (id) {
-  //       fetch(`http://localhost:5000/users/admin/${id}`, {
-  //         method: "PUT",
-  //         headers: {
-  //           authorazition: `bearer ${localStorage.getItem("access-token")}`,
-  //         },
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           console.log(data);
-  //           if (data.modifiedCount > 0) {
-  //             toast.success("Make admin Successfully");
-  //             refetch();
-  //           }
-  //         });
-  //     }
-  //   };
+  const handleMakeVerify = (id) => {
+    if (id) {
+      fetch(`http://localhost:5000/users/seller/${id}`, {
+        method: "PUT",
+        headers: {
+          authorazition: `bearer ${localStorage.getItem("access-token")}`,
+        },
+        body: JSON.stringify({ status: "Verified" }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.modifiedCount > 0) {
+            toast.success("Seller Verified Successfully");
+            refetch();
+          }
+        });
+    }
+  };
   if (isLoading) {
     return <Spinner />;
   }
@@ -76,14 +77,12 @@ const AllSeller = () => {
                 <td>{seller.name}</td>
                 <td>{seller.email}</td>
                 <td>
-                  {seller?.role !== "admin" && (
-                    <button
-                      //   onClick={() => handleMakeVerify(user._id)}
-                      className="btn btn-xs btn-primary"
-                    >
-                      Make Verify
-                    </button>
-                  )}
+                  <button
+                    onClick={() => handleMakeVerify(seller._id)}
+                    className="btn btn-xs btn-primary"
+                  >
+                    Make Verify
+                  </button>
                 </td>
                 <td>
                   <button
