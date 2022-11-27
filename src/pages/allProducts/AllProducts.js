@@ -14,7 +14,7 @@ const AllProducts = () => {
       </div>
       <div>
         {products.map((product) => (
-          <BookingModal product={product}></BookingModal>
+          <BookingModal key={product._id} product={product}></BookingModal>
         ))}
       </div>
     </>
