@@ -7,18 +7,20 @@ const CheckoutForm = ({ booking }) => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-  const { price, patient, email } = booking;
+  const { resalePrice, name, email } = booking;
 
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ price }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, [price]);
+  // useEffect(() => {
+  //   // Create PaymentIntent as soon as the page loads
+  //   fetch("http://localhost:5000/create-payment-intent", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({
+  //       resalePrice,
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setClientSecret(data.clientSecret));
+  // }, [resalePrice]);
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +47,7 @@ const CheckoutForm = ({ booking }) => {
         payment_method: {
           card: card,
           billing_details: {
-            name: patient,
+            name: name,
             email: email,
           },
         },

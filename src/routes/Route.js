@@ -9,6 +9,7 @@ import AllSeller from "../pages/dashboard/allSeller/AllSeller";
 import Dashboard from "../pages/dashboard/Dashboard";
 import MyOrder from "../pages/dashboard/myOrder/MyOrder";
 import MyProducts from "../pages/dashboard/myProducts/MyProducts";
+import Payment from "../pages/dashboard/payment/Payment";
 import ReportedItems from "../pages/dashboard/ReportedItems/ReportedItems";
 import Home from "../pages/home/home/Home";
 
@@ -67,6 +68,7 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
+    errorElement: <ErrrorPage />,
     children: [
       {
         path: "/dashboard",
@@ -115,6 +117,12 @@ export const router = createBrowserRouter([
             <AllSeller />
           </AdminRoutes>
         ),
+      },
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/booking/${params.id}`),
       },
     ],
   },
