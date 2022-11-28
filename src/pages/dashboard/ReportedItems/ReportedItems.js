@@ -19,6 +19,7 @@ const ReportedItems = () => {
   });
 
   const handlerDeleteProduct = (product) => {
+    console.log(product);
     fetch(`http://localhost:5000/reported/${product._id}`, {
       method: "DELETE",
       headers: {
@@ -28,9 +29,7 @@ const ReportedItems = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-          toast.success(
-            `Reported product ${product.productName} Deleted Successfully`
-          );
+          toast.success(`Product ${product.name} Deleted Successfully`);
           refetch();
         }
         console.log(data);

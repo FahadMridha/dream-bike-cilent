@@ -12,6 +12,7 @@ const DashboardLayout = () => {
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller, isSellerLoading] = useSeller(user?.email);
   const [isBuyer] = useBuyer(user?.email);
+  console.log(isSeller);
 
   return (
     <div>
