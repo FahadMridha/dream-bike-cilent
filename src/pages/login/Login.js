@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthPovider";
 import useToken from "../../hooks/useToken";
+import Spinner from "../shared/spinner/Spinner";
 
 const Login = () => {
   const {
@@ -12,7 +13,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn, googleSignIn, loading } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const [loginError, setLoginError] = useState("");
   const [loginEmail, setLoginEmail] = useState("");

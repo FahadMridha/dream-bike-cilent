@@ -16,7 +16,7 @@ const ProductsCard = ({ product }) => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          toast.success(`${product.name} is reported to admin`);
+          toast.success(`${product.ProductName} is reported to admin`);
         }
       });
   };

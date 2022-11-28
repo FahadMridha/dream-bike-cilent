@@ -38,7 +38,7 @@ const AllBuyer = () => {
               <th></th>
               <th>Name</th>
               <th>Email</th>
-              <th>Admin</th>
+
               <th>Delete</th>
             </tr>
           </thead>
@@ -49,16 +49,7 @@ const AllBuyer = () => {
                   <th>{i + 1}</th>
                   <td>{buyer.name}</td>
                   <td>{buyer.email}</td>
-                  <td>
-                    {buyer?.role !== "admin" && (
-                      <button
-                        //   onClick={() => handleMakeAdmin(user._id)}
-                        className="btn btn-xs btn-primary"
-                      >
-                        Make Admin
-                      </button>
-                    )}
-                  </td>
+
                   <td>
                     <button
                       onClick={() => {

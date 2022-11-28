@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AdvertiseCard = ({ advertise }) => {
   console.log(advertise);
@@ -8,7 +9,9 @@ const AdvertiseCard = ({ advertise }) => {
     postTime,
     location,
     yearOfUse,
-    productName,
+    categoryID,
+    ProductName,
+    phoneNumber,
     description,
     condition,
   } = advertise;
@@ -20,12 +23,13 @@ const AdvertiseCard = ({ advertise }) => {
           <img src={image} alt="Shoes" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Title: {productName}</h2>
+          <h2 className="card-title">Title: {ProductName}</h2>
           <p>Product Condition: {condition}</p>
           <p className="font-bold"> Price: {resalePrice} BDT</p>
           <p>{description} </p>
           <p>Post Date:{postTime}</p>
           <p>Location: {location}</p>
+          <p>Phone: {phoneNumber}</p>
           <div className="card-actions justify-end"></div>
         </div>
       </div>

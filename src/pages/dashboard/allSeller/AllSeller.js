@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import Spinner from "../../shared/spinner/Spinner";
 
 const AllSeller = () => {
+  const [seller, setSeller] = useState([]);
   const {
     data: sellers = [],
     refetch,
@@ -13,6 +14,7 @@ const AllSeller = () => {
     queryFn: async () => {
       const res = await fetch("http://localhost:5000/users?role=seller");
       const data = await res.json();
+      setSeller(data);
       return data;
     },
   });
@@ -27,31 +29,37 @@ const AllSeller = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-          toast.success(`Doctor ${seller.name} Deleted Successfully`);
+          toast.success(`Seller ${seller.name} Deleted Successfully`);
           refetch();
         }
         console.log(data);
       });
   };
+
   const handleMakeVerify = (id) => {
-    if (id) {
-      fetch(`http://localhost:5000/users/seller/${id}`, {
-        method: "PUT",
-        headers: {
-          authorazition: `bearer ${localStorage.getItem("access-token")}`,
-        },
-        body: JSON.stringify({ status: "Verified" }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.modifiedCount > 0) {
-            toast.success("Seller Verified Successfully");
-            refetch();
-          }
-        });
-    }
+    fetch(`http://localhost:5000/users/seller/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "Verified" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          toast.success("Usser Verified  Succesfully");
+          const remaning = seller.filter((odr) => odr._id !== id);
+          const approving = seller.find((odr) => odr._id === id);
+          approving.status = "Verified";
+          const newOrder = [approving, ...remaning];
+
+          setSeller(newOrder);
+          refetch();
+        }
+      });
   };
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -80,9 +88,9 @@ const AllSeller = () => {
                   <td>
                     <button
                       onClick={() => handleMakeVerify(seller._id)}
-                      className="btn btn-xs btn-primary"
+                      className="btn btn-ghost btn-xs"
                     >
-                      Make Verify
+                      {seller.status ? seller.status : " Unverified"}
                     </button>
                   </td>
                   <td>

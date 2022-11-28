@@ -15,7 +15,9 @@ import Home from "../pages/home/home/Home";
 import Login from "../pages/login/Login";
 import SignUp from "../pages/register/SignUp";
 import ErrrorPage from "../pages/shared/error/ErrorPage";
+import AdminRoutes from "./private/adminRoute/AdminRoutes";
 import PrivateRoute from "./private/PrivateRoute";
+import SellerRoutes from "./private/sellerRoute/SellerRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -76,34 +78,44 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/myproduct",
-        element: <MyProducts />,
+        element: (
+          <SellerRoutes>
+            <MyProducts />
+          </SellerRoutes>
+        ),
       },
       {
         path: "/dashboard/allbuyer",
-        element: <AllBuyer />,
+        element: (
+          <AdminRoutes>
+            <AllBuyer />
+          </AdminRoutes>
+        ),
       },
       {
         path: "/dashboard/addproduct",
-        element: <AddProducts />,
+        element: (
+          <SellerRoutes>
+            <AddProducts />
+          </SellerRoutes>
+        ),
       },
       {
         path: "/dashboard/reportedItems",
-        element: <ReportedItems />,
+        element: (
+          <AdminRoutes>
+            <ReportedItems />
+          </AdminRoutes>
+        ),
       },
       {
         path: "/dashboard/allsellers",
-        element: <AllSeller />,
+        element: (
+          <AdminRoutes>
+            <AllSeller />
+          </AdminRoutes>
+        ),
       },
-      // {
-      //   path: "/dashboard/payment/:id",
-      //   element: (
-      //     <AdminRoutes>
-      //       "<Payment />"
-      //     </AdminRoutes>
-      //   ),
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:5000/bookings/${params.id}`),
-      // },
     ],
   },
 ]);
