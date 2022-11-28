@@ -61,7 +61,7 @@ const AddProducts = () => {
             .then((data) => {
               console.log(data);
               if (data.acknowledged) {
-                toast.success(`${product.name} is added Successfully`);
+                toast.success(`${product.ProductName} is added Successfully`);
                 navigate("/dashboard/myproduct");
               }
             });
@@ -176,21 +176,7 @@ const AddProducts = () => {
             <p className="text-red-600">{errors.resalePrice.message}</p>
           )}
         </div>
-        {/* <div className="form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text">Name</span>
-          </label>
 
-          <input
-            placeholder="Your Name"
-            type="text"
-            {...register("name", {
-              required: "Name is required",
-            })}
-            className="input input-bordered w-full max-w-xs"
-          />
-          {errors.name && <p className="text-red-600">{errors.name.message}</p>}
-        </div> */}
         <div className="form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Original Price</span>
@@ -252,7 +238,7 @@ const AddProducts = () => {
             className="select input-bordered w-full max-w-xs"
           >
             <option disabled selected>
-              <span>Pick one if you want YAMAHA-1,SUZUKI-2,HONDA-3</span>
+              <span>Pick one if you want</span>
             </option>
             <option value="1">YAMAHA</option>
             <option value="2">SUZUKI</option>

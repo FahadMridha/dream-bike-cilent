@@ -29,7 +29,7 @@ const Advertised = () => {
       </h4>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {advertise &&
-          advertise.map((adv) => (
+          advertise?.map((adv) => (
             <AdvertiseCard key={adv._id} advertise={adv} />
           ))}
       </div>

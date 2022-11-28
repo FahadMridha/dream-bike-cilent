@@ -29,10 +29,9 @@ const ReportedItems = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-          toast.success(`Product ${product.name} Deleted Successfully`);
+          toast.success(`Product ${product.ProductName} Deleted Successfully`);
           refetch();
         }
-        console.log(data);
       });
   };
 
@@ -51,14 +50,14 @@ const ReportedItems = () => {
             </tr>
           </thead>
           <tbody>
-            {reportedProducts &&
+            {reportedProducts.length &&
               reportedProducts?.map((product, i) => (
                 <tr key={product._id}>
                   <th>{i + 1}</th>
                   <td>
                     <div className="avatar">
                       <div className="w-24 rounded-full">
-                        <img src={product.productImg} alt="" />
+                        <img src={product.image} alt="" />
                       </div>
                     </div>
                   </td>

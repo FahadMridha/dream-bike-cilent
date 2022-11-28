@@ -4,7 +4,8 @@ const Dashboard = () => {
   return (
     <div>
       <h1 className="text-4xl font-bold md:tracking-tight md:text-5xl">
-        Welcome to Dashboard
+        <span className="text-red-700">Welcome</span> to{" "}
+        <span className="text-green-700">Dashboard</span>
       </h1>
     </div>
   );

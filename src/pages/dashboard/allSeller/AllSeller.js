@@ -71,29 +71,30 @@ const AllSeller = () => {
             </tr>
           </thead>
           <tbody>
-            {sellers.map((seller, i) => (
-              <tr key={seller._id}>
-                <th>{i + 1}</th>
-                <td>{seller.name}</td>
-                <td>{seller.email}</td>
-                <td>
-                  <button
-                    onClick={() => handleMakeVerify(seller._id)}
-                    className="btn btn-xs btn-primary"
-                  >
-                    Make Verify
-                  </button>
-                </td>
-                <td>
-                  <button
-                    onClick={() => handlerDeleteSeller(seller)}
-                    className="btn btn-xs btn-warning"
-                  >
-                    Detele
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {sellers.length &&
+              sellers?.map((seller, i) => (
+                <tr key={seller._id}>
+                  <th>{i + 1}</th>
+                  <td>{seller.name}</td>
+                  <td>{seller.email}</td>
+                  <td>
+                    <button
+                      onClick={() => handleMakeVerify(seller._id)}
+                      className="btn btn-xs btn-primary"
+                    >
+                      Make Verify
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => handlerDeleteSeller(seller)}
+                      className="btn btn-xs btn-warning"
+                    >
+                      Detele
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

@@ -4,7 +4,7 @@ Name: DREAM BIKE
 
 # Live Site Link:
 
-Hosted in Firebase -> [DREAM BIKE](https://service-review-8b4de.web.app/)
+Hosted in Firebase -> [DREAM BIKE](https://resale-product-76830.web.app/)
 
 # React Router Dom v6.4
 
@@ -28,4 +28,5 @@ toast ->[react-hot-toast](https://react-hot-toast.com/)
 - 3.->If you want you advertise your won product as a seller.
 
 - 4.->when user create a account she/he access two option a product give him/her valid information. otherwise she/he dont saw that and do not buye no one.
+
 - 5.->Its also has jwt othentication system a dashboard admin authentication.

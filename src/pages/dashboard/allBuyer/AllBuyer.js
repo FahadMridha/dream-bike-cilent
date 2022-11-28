@@ -43,33 +43,34 @@ const AllBuyer = () => {
             </tr>
           </thead>
           <tbody>
-            {buyers.map((buyer, i) => (
-              <tr key={buyer._id}>
-                <th>{i + 1}</th>
-                <td>{buyer.name}</td>
-                <td>{buyer.email}</td>
-                <td>
-                  {buyer?.role !== "admin" && (
+            {buyers.length &&
+              buyers?.map((buyer, i) => (
+                <tr key={buyer._id}>
+                  <th>{i + 1}</th>
+                  <td>{buyer.name}</td>
+                  <td>{buyer.email}</td>
+                  <td>
+                    {buyer?.role !== "admin" && (
+                      <button
+                        //   onClick={() => handleMakeAdmin(user._id)}
+                        className="btn btn-xs btn-primary"
+                      >
+                        Make Admin
+                      </button>
+                    )}
+                  </td>
+                  <td>
                     <button
-                      //   onClick={() => handleMakeAdmin(user._id)}
-                      className="btn btn-xs btn-primary"
+                      onClick={() => {
+                        handlerDeletBayer(buyer);
+                      }}
+                      className="btn btn-xs btn-warning"
                     >
-                      Make Admin
+                      Detele
                     </button>
-                  )}
-                </td>
-                <td>
-                  <button
-                    onClick={() => {
-                      handlerDeletBayer(buyer);
-                    }}
-                    className="btn btn-xs btn-warning"
-                  >
-                    Detele
-                  </button>
-                </td>
-              </tr>
-            ))}
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

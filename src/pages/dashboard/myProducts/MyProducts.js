@@ -69,7 +69,7 @@ const MyProducts = () => {
             <tr>
               <th></th>
               <th>Picture</th>
-              <th>Titale</th>
+              <th>Status</th>
               <th>Price</th>
               <th>Advertise</th>
               <th>Delete</th>
@@ -83,11 +83,11 @@ const MyProducts = () => {
                   <td>
                     <div className="avatar">
                       <div className="w-24 rounded-full">
-                        <img src={product.productImg} alt="" />
+                        <img src={product.image} alt="" />
                       </div>
                     </div>
                   </td>
-                  <td>{product.productName}</td>
+                  <td>{}</td>
                   <td>{product.resalePrice} BDT</td>
                   <td>
                     <button
