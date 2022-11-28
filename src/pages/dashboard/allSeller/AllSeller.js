@@ -12,7 +12,9 @@ const AllSeller = () => {
   } = useQuery({
     queryKey: ["seller"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users?role=seller");
+      const res = await fetch(
+        " https://dream-bike-alpha-green.vercel.app/users?role=seller"
+      );
       const data = await res.json();
       setSeller(data);
       return data;
@@ -20,7 +22,7 @@ const AllSeller = () => {
   });
 
   const handlerDeleteSeller = (seller) => {
-    fetch(`http://localhost:5000/users/${seller._id}`, {
+    fetch(` https://dream-bike-alpha-green.vercel.app/users/${seller._id}`, {
       method: "DELETE",
       headers: {
         authorazition: `bearer ${localStorage.getItem("access-token")}`,
@@ -37,7 +39,7 @@ const AllSeller = () => {
   };
 
   const handleMakeVerify = (id) => {
-    fetch(`http://localhost:5000/users/seller/${id}`, {
+    fetch(` https://dream-bike-alpha-green.vercel.app/users/seller/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

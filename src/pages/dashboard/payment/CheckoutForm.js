@@ -11,7 +11,7 @@ const CheckoutForm = ({ booking }) => {
 
   // useEffect(() => {
   //   // Create PaymentIntent as soon as the page loads
-  //   fetch("http://localhost:5000/create-payment-intent", {
+  //   fetch(" https://dream-bike-alpha-green.vercel.app/create-payment-intent", {
   //     method: "POST",
   //     headers: { "Content-Type": "application/json" },
   //     body: JSON.stringify({

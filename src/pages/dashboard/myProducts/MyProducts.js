@@ -6,7 +6,7 @@ import { AuthContext } from "../../../context/AuthPovider";
 const MyProducts = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/allProducts?email=${user?.email}`;
+  const url = ` https://dream-bike-alpha-green.vercel.app/allProducts?email=${user?.email}`;
   const { data: myProducts = [], refetch } = useQuery({
     queryKey: ["product", user?.email],
     queryFn: async () => {
@@ -22,12 +22,15 @@ const MyProducts = () => {
   });
 
   const handlerDeleteProduct = (product) => {
-    fetch(`http://localhost:5000/allProducts/${product._id}`, {
-      method: "DELETE",
-      headers: {
-        authorazition: `bearer ${localStorage.getItem("access-token")}`,
-      },
-    })
+    fetch(
+      ` https://dream-bike-alpha-green.vercel.app/allProducts/${product._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorazition: `bearer ${localStorage.getItem("access-token")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -42,7 +45,7 @@ const MyProducts = () => {
 
   const handlerAdvertise = (product) => {
     console.log(product);
-    fetch("http://localhost:5000/advertise", {
+    fetch(" https://dream-bike-alpha-green.vercel.app/advertise", {
       method: "POST",
       headers: {
         "content-type": "application/json",

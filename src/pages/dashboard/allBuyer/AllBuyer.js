@@ -5,13 +5,15 @@ const AllBuyer = () => {
   const { data: buyers = [], refetch } = useQuery({
     queryKey: ["buyers"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users?role=buyer");
+      const res = await fetch(
+        " https://dream-bike-alpha-green.vercel.app/users?role=buyer"
+      );
       const data = await res.json();
       return data;
     },
   });
   const handlerDeletBayer = (buyer) => {
-    fetch(`http://localhost:5000/users/${buyer._id}`, {
+    fetch(` https://dream-bike-alpha-green.vercel.app/users/${buyer._id}`, {
       method: "DELETE",
       headers: {
         authorazition: `bearer ${localStorage.getItem("access-token")}`,
