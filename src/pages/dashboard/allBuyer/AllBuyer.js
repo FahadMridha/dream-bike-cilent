@@ -13,9 +13,9 @@ const AllBuyer = () => {
   const handlerDeletBayer = (buyer) => {
     fetch(`http://localhost:5000/users/${buyer._id}`, {
       method: "DELETE",
-      // headers: {
-      //   authorazition: `bearer ${localStorage.getItem("access-token")}`,
-      // },
+      headers: {
+        authorazition: `bearer ${localStorage.getItem("access-token")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {

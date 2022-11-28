@@ -17,9 +17,10 @@ const Banner = () => {
               <span className="text-green-700 text-5xl">BIKE</span>
             </h1>
             <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              Top Bike & Scooter Brand ,Yamaha , Honda , Suzuki , Hero , Tvs ,
+              Bajaj. Motorcycle Brands in Bangladesh Aprilia Bangladesh. Aprilia
+              ; Atlas Zongshen Bangladesh. Atlas Zongshen , Bajaj Bangladesh.
+              Bajaj.
             </p>
             <ButtonComponent>Get Started</ButtonComponent>
           </div>

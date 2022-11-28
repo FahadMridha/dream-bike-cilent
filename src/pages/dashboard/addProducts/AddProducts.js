@@ -48,12 +48,12 @@ const AddProducts = () => {
             image: imgData.data.url,
             sellerName: data.sellerName,
           };
-          //   save a doctor
+          //   save a new Product
           fetch("http://localhost:5000/allProducts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
-              //   authorazition: `bearer ${localStorage.getItem("access-token")}`,
+              authorazition: `bearer ${localStorage.getItem("access-token")}`,
             },
             body: JSON.stringify(product),
           })

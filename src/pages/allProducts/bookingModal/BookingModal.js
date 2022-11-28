@@ -31,6 +31,7 @@ const BookingModal = ({ product }) => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorazition: `bearer ${localStorage.getItem("access-token")}`,
       },
       body: JSON.stringify(booking),
     })
@@ -38,9 +39,8 @@ const BookingModal = ({ product }) => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          //   setForm(null);
+          form.reset();
           toast.success("Your product is Booked");
-          //   refetch();
         }
       })
       .catch((error) => console.log(error));

@@ -32,6 +32,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        const email = user?.email;
         // console.log(user);
         toast("Successfully user login", {
           icon: "👏",

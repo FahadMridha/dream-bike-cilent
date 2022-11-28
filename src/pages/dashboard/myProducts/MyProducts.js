@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
-import ButtonComponent from "../../../component/button/ButtonComponent";
 import { AuthContext } from "../../../context/AuthPovider";
 
 const MyProducts = () => {
@@ -26,9 +24,9 @@ const MyProducts = () => {
   const handlerDeleteProduct = (product) => {
     fetch(`http://localhost:5000/allProducts/${product._id}`, {
       method: "DELETE",
-      // headers: {
-      //   authorazition: `bearer ${localStorage.getItem("access-token")}`,
-      // },
+      headers: {
+        authorazition: `bearer ${localStorage.getItem("access-token")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {

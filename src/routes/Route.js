@@ -50,7 +50,12 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/allProducts?categoryID=${params.categoryID}`
+            `http://localhost:5000/allProducts?categoryID=${params.categoryID}`,
+            {
+              headers: {
+                authorazition: `bearer ${localStorage.getItem("access-token")}`,
+              },
+            }
           ),
       },
     ],
