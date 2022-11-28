@@ -19,7 +19,10 @@ const Advertised = () => {
   }
   return (
     <div className="m-6">
-      <h4 className="text-center">Advertised {advertise.length}</h4>
+      <h4 className="text-center text-3xl text-bold text-green-700 m-4">
+        New Arrivale Please Visit Our Category{" "}
+        <span className="text-red-700">To Buy your Choice</span>
+      </h4>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {advertise &&
           advertise.map((adv) => (

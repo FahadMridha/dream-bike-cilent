@@ -16,15 +16,15 @@ const Login = () => {
   const googleProvider = new GoogleAuthProvider();
   const [loginError, setLoginError] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
-  // const [token] = useToken(loginEmail);
+  const [token] = useToken(loginEmail);
 
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
-  // if (token) {
-  //   navigate(from, { replace: true });
-  // }
+  if (token) {
+    navigate(from, { replace: true });
+  }
   const handleLogin = (data) => {
     // console.log(data);
     setLoginError("");
@@ -33,7 +33,14 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         // console.log(user);
-        toast.success("Successfully user login");
+        toast("Successfully user login", {
+          icon: "👏",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
         setLoginEmail(email);
       })
       .catch((error) => {
@@ -45,10 +52,18 @@ const Login = () => {
     googleSignIn(provider)
       .then((result) => {
         const user = result.user;
-        toast.success("Successfully user Login");
+        toast("Successfully user Login", {
+          icon: "👏",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
         const name = user?.displayName;
         const email = user?.email;
         const role = "buyer";
+        setLoginEmail(email);
         saveUserToDb(name, email, role);
         console.log(user);
       })

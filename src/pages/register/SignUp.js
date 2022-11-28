@@ -18,10 +18,10 @@ const SignUp = () => {
   const [signupError, setSignupError] = useState("");
   const navigate = useNavigate();
   const [createUserEmail, setCreateUserEmail] = useState("");
-  // const [token] = useToken(createUserEmail);
-  // if (token) {
-  //   navigate("/");
-  // }
+  const [token] = useToken(createUserEmail);
+  if (token) {
+    navigate("/");
+  }
   const handlerSignUp = (data) => {
     console.log(data);
     setSignupError("");
@@ -29,7 +29,14 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        toast.success("Successfully create user");
+        toast("Successfully create user", {
+          icon: "👏",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
         const userInfo = {
           displayName: name,
         };
@@ -49,7 +56,14 @@ const SignUp = () => {
     googleSignIn(googleProvider)
       .then((result) => {
         const user = result.user;
-        toast.success("Successfully create user");
+        toast("Successfully create user", {
+          icon: "👏",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
         const name = user?.displayName;
         const email = user?.email;
         const role = "buyer";

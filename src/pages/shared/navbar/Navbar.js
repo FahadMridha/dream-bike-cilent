@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthPovider";
 
-// import logo from "../../assets/images/logo1.png";
+import logo from "../../../assets/image/logo.png";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -70,10 +70,10 @@ const Header = () => {
             {menuItems}
           </ul>
         </div>
-        <img className="w-10 h-10" src={"logo"} alt="" />
+        <img className="w-10 h-10" src={logo} alt="" />
         <Link to="/" className="">
-          <span className="text-4xl font-semibold text-lime-800 ">
-            DREAM BIKE
+          <span className="text-4xl font-semibold text-green-800 ">
+            <span className="text-red-700">DREAM</span> BIKE
           </span>
         </Link>
       </div>

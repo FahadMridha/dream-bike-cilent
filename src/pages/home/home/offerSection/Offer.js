@@ -13,7 +13,7 @@ const Offer = () => {
               10% Off
             </h2>
             <div className="space-x-2 text-center py-2 lg:py-0">
-              <span> First Order! Please Use code:</span>
+              <span>Only for First Order! Please Use code:</span>
               <span className="font-bold text-lg">DREAM BIKE</span>
             </div>
             <Link
