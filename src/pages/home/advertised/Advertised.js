@@ -8,7 +8,7 @@ const Advertised = () => {
     queryKey: ["advertise"],
     queryFn: async () => {
       const res = await fetch(
-        " https://dream-bike-alpha-green.vercel.app/advertise",
+        "https://dream-bike-alpha-green.vercel.app/advertise",
         {
           headers: {
             authorazition: `bearer ${localStorage.getItem("access-token")}`,
@@ -16,7 +16,6 @@ const Advertised = () => {
         }
       );
       const data = await res.json();
-      console.log(data);
 
       return data;
     },

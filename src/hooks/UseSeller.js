@@ -5,7 +5,7 @@ const useSeller = (email) => {
   const [isSellerLoading, setIsSellerLoading] = useState(true);
   useEffect(() => {
     if (email) {
-      fetch(` https://dream-bike-alpha-green.vercel.app/users/seller/${email}`)
+      fetch(`https://dream-bike-alpha-green.vercel.app/users/seller/${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

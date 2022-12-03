@@ -49,7 +49,7 @@ const AddProducts = () => {
             sellerName: data.sellerName,
           };
           //   save a new Product
-          fetch(" https://dream-bike-alpha-green.vercel.app/allProducts", {
+          fetch("https://dream-bike-alpha-green.vercel.app/allProducts", {
             method: "POST",
             headers: {
               "content-type": "application/json",

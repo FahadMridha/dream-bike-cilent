@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthPovider";
 import useToken from "../../hooks/useToken";
-import Spinner from "../shared/spinner/Spinner";
+import SmallSpinner from "../shared/spinner/SmallSpinner";
 
 const Login = () => {
   const {
@@ -74,7 +74,7 @@ const Login = () => {
 
   const saveUserToDb = (name, email, role) => {
     const user = { name, email, role };
-    fetch(" https://dream-bike-alpha-green.vercel.app/users", {
+    fetch("https://dream-bike-alpha-green.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -134,11 +134,14 @@ const Login = () => {
               <span className="label-text"> Forgate password?</span>
             </label>
           </div>
-          <input
+
+          <button
             className="btn bg-green-600 hover:bg-green-700 w-full"
             value="Login"
             type="submit"
-          />
+          >
+            {loading ? <SmallSpinner /> : "Sign in"}
+          </button>
         </form>
         <div>{loginError && <p className="text-red-600">{loginError}</p>}</div>
         <p>

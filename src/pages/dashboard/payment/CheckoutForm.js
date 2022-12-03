@@ -4,23 +4,27 @@ import React, { useEffect, useState } from "react";
 
 const CheckoutForm = ({ booking }) => {
   const [cardError, setCardError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [process, setProcess] = useState(false);
+  const [transationid, setTransationid] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-  const { resalePrice, name, email } = booking;
+  const { resalePrice, name, email, _id } = booking;
+  console.log(booking);
 
-  // useEffect(() => {
-  //   // Create PaymentIntent as soon as the page loads
-  //   fetch(" https://dream-bike-alpha-green.vercel.app/create-payment-intent", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({
-  //       resalePrice,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setClientSecret(data.clientSecret));
-  // }, [resalePrice]);
+  useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    fetch("https://dream-bike-alpha-green.vercel.app/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        resalePrice,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+  }, [resalePrice]);
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
@@ -42,6 +46,8 @@ const CheckoutForm = ({ booking }) => {
       setCardError("");
     }
     console.log(clientSecret);
+    setSuccess("");
+    setProcess(true);
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -56,7 +62,27 @@ const CheckoutForm = ({ booking }) => {
       setCardError(confirmError.message);
       return;
     }
-    console.log("payment:", paymentIntent);
+    if (paymentIntent.status === "succeeded") {
+      const payment = {
+        resalePrice,
+        transitionId: paymentIntent.id,
+        bookingId: _id,
+        email,
+      };
+      fetch("https://dream-bike-alpha-green.vercel.app/payments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            setSuccess("Congrats! your payment is complete");
+            setTransationid(paymentIntent.id);
+          }
+        });
+    }
+    setProcess(false);
   };
 
   return (
@@ -81,12 +107,21 @@ const CheckoutForm = ({ booking }) => {
         <button
           className="btn btn-sm btn-primary my-4"
           type="submit"
-          disabled={!stripe || !clientSecret}
+          disabled={!stripe || !clientSecret || process}
         >
           Pay
         </button>
       </form>
       <p className="text-red-400">{cardError}</p>
+      {success && (
+        <div>
+          <p className="text-green-500">{success}</p>
+          <p className="">
+            your Transaction Id{" "}
+            <span className="font-bold">{transationid}</span>
+          </p>
+        </div>
+      )}
     </>
   );
 };

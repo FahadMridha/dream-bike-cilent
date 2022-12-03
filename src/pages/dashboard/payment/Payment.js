@@ -3,11 +3,12 @@ import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import CheckoutForm from "./CheckoutForm";
-const stripePromise = loadStripe(process.env.REACT_APP_stripe_pk);
 
 const Payment = () => {
   const booking = useLoaderData();
-  // console.log(booking);
+
+  const stripePromise = loadStripe(process.env.REACT_APP_stripe_pk);
+
   const { resalePrice, productName } = booking;
 
   return (

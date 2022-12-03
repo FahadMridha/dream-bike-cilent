@@ -6,14 +6,14 @@ const AllBuyer = () => {
     queryKey: ["buyers"],
     queryFn: async () => {
       const res = await fetch(
-        " https://dream-bike-alpha-green.vercel.app/users?role=buyer"
+        "https://dream-bike-alpha-green.vercel.app/users?role=buyer"
       );
       const data = await res.json();
       return data;
     },
   });
   const handlerDeletBayer = (buyer) => {
-    fetch(` https://dream-bike-alpha-green.vercel.app/users/${buyer._id}`, {
+    fetch(`https://dream-bike-alpha-green.vercel.app/users/${buyer._id}`, {
       method: "DELETE",
       headers: {
         authorazition: `bearer ${localStorage.getItem("access-token")}`,

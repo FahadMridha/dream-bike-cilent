@@ -4,7 +4,7 @@ import CategoryCard from "./CategoryCard";
 const ProductCategories = () => {
   const [categorys, setCategorys] = useState([]);
   useEffect(() => {
-    fetch(" https://dream-bike-alpha-green.vercel.app/allCategories")
+    fetch("https://dream-bike-alpha-green.vercel.app/allCategories")
       .then((res) => res.json())
       .then((data) => setCategorys(data));
   }, []);

@@ -6,7 +6,7 @@ import { AuthContext } from "../../../context/AuthPovider";
 const MyOrder = () => {
   const { user } = useContext(AuthContext);
 
-  const url = ` https://dream-bike-alpha-green.vercel.app/bookings?email=${user?.email}`;
+  const url = `https://dream-bike-alpha-green.vercel.app/bookings?email=${user?.email}`;
   const { data: bookings = [] } = useQuery({
     queryKey: ["booking", user?.email],
     queryFn: async () => {
@@ -56,8 +56,8 @@ const MyOrder = () => {
                         <button className="btn btn-primary btn-sm">Pay</button>
                       </Link>
                     )}
-                    {booking.resalerice && booking.paid && (
-                      <button className="btn btn-success btn-sm ">Paid</button>
+                    {booking.resalePrice && booking.paid && (
+                      <button className="btn btn-success btn-sm">Paid</button>
                     )}
                   </td>
                 </tr>

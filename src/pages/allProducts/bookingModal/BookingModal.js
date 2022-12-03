@@ -27,7 +27,7 @@ const BookingModal = ({ product }) => {
     };
     console.log(booking);
 
-    fetch(" https://dream-bike-alpha-green.vercel.app/bookings", {
+    fetch("https://dream-bike-alpha-green.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -4,7 +4,7 @@ const useToken = (email) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     if (email) {
-      fetch(` https://dream-bike-alpha-green.vercel.app/jwt?email=${email}`)
+      fetch(`https://dream-bike-alpha-green.vercel.app/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

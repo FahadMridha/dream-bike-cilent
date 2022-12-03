@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            ` https://dream-bike-alpha-green.vercel.app/allProducts?categoryID=${params.categoryID}`,
+            `https://dream-bike-alpha-green.vercel.app/allProducts?categoryID=${params.categoryID}`,
             {
               headers: {
                 authorazition: `bearer ${localStorage.getItem("access-token")}`,
@@ -123,7 +123,7 @@ export const router = createBrowserRouter([
         element: <Payment />,
         loader: ({ params }) =>
           fetch(
-            ` https://dream-bike-alpha-green.vercel.app/booking/${params.id}`
+            `https://dream-bike-alpha-green.vercel.app/bookings/${params.id}`
           ),
       },
     ],

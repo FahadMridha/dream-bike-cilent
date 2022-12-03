@@ -75,7 +75,7 @@ const SignUp = () => {
 
   const saveUserToDb = (name, email, role) => {
     const user = { name, email, role };
-    fetch(" https://dream-bike-alpha-green.vercel.app/users", {
+    fetch("https://dream-bike-alpha-green.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

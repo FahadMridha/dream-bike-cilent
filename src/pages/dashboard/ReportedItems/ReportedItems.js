@@ -3,7 +3,7 @@ import React from "react";
 import toast from "react-hot-toast";
 
 const ReportedItems = () => {
-  const url = " https://dream-bike-alpha-green.vercel.app/reported";
+  const url = "https://dream-bike-alpha-green.vercel.app/reported";
   const { data: reportedProducts = [], refetch } = useQuery({
     queryKey: ["reportede"],
     queryFn: async () => {
@@ -20,15 +20,12 @@ const ReportedItems = () => {
 
   const handlerDeleteProduct = (product) => {
     console.log(product);
-    fetch(
-      ` https://dream-bike-alpha-green.vercel.app/reported/${product._id}`,
-      {
-        method: "DELETE",
-        headers: {
-          authorazition: `bearer ${localStorage.getItem("access-token")}`,
-        },
-      }
-    )
+    fetch(`https://dream-bike-alpha-green.vercel.app/reported/${product._id}`, {
+      method: "DELETE",
+      headers: {
+        authorazition: `bearer ${localStorage.getItem("access-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

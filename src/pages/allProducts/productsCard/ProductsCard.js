@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 const ProductsCard = ({ product }) => {
   const handlerReporting = (product) => {
     //   save a reported product
-    fetch(" https://dream-bike-alpha-green.vercel.app/reported", {
+    fetch("https://dream-bike-alpha-green.vercel.app/reported", {
       method: "POST",
       headers: {
         "content-type": "application/json",
