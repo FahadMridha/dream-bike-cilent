@@ -7,7 +7,7 @@ const useToken = (email) => {
       fetch(`https://dream-bike-alpha-green.vercel.app/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           if (data.accessToken) {
             localStorage.setItem("access-token", data.accessToken);
             setToken(data.accessToken);
