@@ -10,7 +10,7 @@ import Navbar from "../../pages/shared/navbar/Navbar";
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
-  const [isSeller, isSellerLoading] = useSeller(user?.email);
+  const [isSeller] = useSeller(user?.email);
   const [isBuyer] = useBuyer(user?.email);
   console.log(isSeller);
 
@@ -25,6 +25,12 @@ const DashboardLayout = () => {
         />
         <div className="drawer-content ">
           <Outlet />
+          <label
+            htmlFor="dashboard-dwawer"
+            className="btn btn-primary drawer-button lg:hidden"
+          >
+            Open
+          </label>
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboard-dwawer" className="drawer-overlay"></label>
