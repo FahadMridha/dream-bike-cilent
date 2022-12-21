@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthPovider";
+import Spinner from "../../shared/spinner/Spinner";
 
 const MyOrder = () => {
   const { user } = useContext(AuthContext);
 
   const url = `https://dream-bike-alpha-green.vercel.app/bookings?email=${user?.email}`;
-  const { data: bookings = [] } = useQuery({
+  const { data: bookings = [], isLoading } = useQuery({
     queryKey: ["booking", user?.email],
     queryFn: async () => {
       const res = await fetch(url, {
@@ -20,10 +21,13 @@ const MyOrder = () => {
       return data;
     },
   });
+  if (isLoading) {
+    return <Spinner></Spinner>;
+  }
 
   return (
     <div>
-      <h3 className="text-3xl mb-5">My Orders</h3>
+      <h3 className="text-3xl mb-5 text-green-900 font-bold">MY ORDERS</h3>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

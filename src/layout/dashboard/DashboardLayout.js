@@ -32,29 +32,59 @@ const DashboardLayout = () => {
             {isSeller && (
               <>
                 <li>
-                  <Link to="/dashboard/myproduct">My Products</Link>
+                  <Link
+                    className="bg-green-800 hover:bg-green-700 w-3/4 text-white font-bold text-xl"
+                    to="/dashboard/myproduct"
+                  >
+                    MY PRODUCTS
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/addproduct">Add A product</Link>
+                  <Link
+                    className="bg-green-800 hover:bg-green-700 w-3/4 text-white font-bold text-xl"
+                    to="/dashboard/addproduct"
+                  >
+                    ADD A PRODUCT
+                  </Link>
                 </li>
               </>
             )}
             {isBuyer && (
               <li>
-                <Link to="/dashboard/myorder">My Orders</Link>
+                <Link
+                  to="/dashboard/myorder"
+                  className="bg-green-700 hover:bg-green-800 w-3/4 text-white font-bold text-xl"
+                >
+                  MY ORDERS
+                </Link>
               </li>
             )}
 
             {isAdmin && (
               <>
                 <li>
-                  <Link to="/dashboard/allsellers">All Sellers</Link>
+                  <Link
+                    className="bg-green-800 hover:bg-green-700 w-3/4 text-white font-bold text-xl"
+                    to="/dashboard/allsellers"
+                  >
+                    ALL SELLERS
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/allbuyer">All Buyers</Link>
+                  <Link
+                    className="bg-green-800 hover:bg-green-700 w-3/4 text-white font-bold text-xl"
+                    to="/dashboard/allbuyer"
+                  >
+                    ALL BUYERS
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/reportedItems">Reported Items</Link>
+                  <Link
+                    className="bg-green-800 hover:bg-green-700 w-3/4 text-white font-bold text-xl"
+                    to="/dashboard/reportedItems"
+                  >
+                    REPORTED ITMES
+                  </Link>
                 </li>
               </>
             )}

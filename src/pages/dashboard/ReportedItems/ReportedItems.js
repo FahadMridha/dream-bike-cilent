@@ -61,7 +61,7 @@ const ReportedItems = () => {
                       </div>
                     </div>
                   </td>
-                  <td>{product.productName}</td>
+                  <td>{product.ProductName}</td>
                   <td>{product.resalePrice} BDT</td>
                   <td>
                     <button

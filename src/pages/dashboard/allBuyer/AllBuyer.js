@@ -1,8 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import Spinner from "../../shared/spinner/Spinner";
 
 const AllBuyer = () => {
-  const { data: buyers = [], refetch } = useQuery({
+  const {
+    data: buyers = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["buyers"],
     queryFn: async () => {
       const res = await fetch(
@@ -28,6 +33,9 @@ const AllBuyer = () => {
         console.log(data);
       });
   };
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div>

@@ -98,16 +98,22 @@ const BookingModal = ({ product }) => {
             <input
               name="phone"
               type="text"
+              required
               placeholder="Your phone"
               className="input w-full input-bordered "
             />
             <input
               name="meetingLocation"
               type="text"
+              required
               placeholder="Meeting location"
               className="input w-full input-bordered "
             />
-            <input className="btn bg-accent" type="submit" value="SUBMIT" />
+            <input
+              className="btn  bg-green-800 hover:bg-green-700"
+              type="submit"
+              value="SUBMIT"
+            />
           </form>
         </div>
       </div>
