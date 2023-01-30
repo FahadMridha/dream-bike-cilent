@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/AuthPovider";
 import useAdmin from "../../hooks/useAdimn";
 import useBuyer from "../../hooks/useBuyer";
 import useSeller from "../../hooks/useSeller";
+// import { IoCaretForwardSharp } from "react-icons/fa";
 
 import Navbar from "../../pages/shared/navbar/Navbar";
 
@@ -29,7 +30,7 @@ const DashboardLayout = () => {
             htmlFor="dashboard-dwawer"
             className="btn btn-primary drawer-button lg:hidden"
           >
-            Open
+            {/* <IoCaretForwardSharp /> */}
           </label>
         </div>
         <div className="drawer-side">
