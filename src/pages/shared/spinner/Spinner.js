@@ -2,7 +2,10 @@ import React from "react";
 
 const Spinner = () => {
   return (
-    <div className="w-14 h-14 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+    <>
+      <p className="text-3xl">Loding....</p>
+      <div className="content-center w-14 h-14 border-4 border-dashed rounded-full animate-spin border-green-600 dark:border-green-700"></div>
+    </>
   );
 };
 

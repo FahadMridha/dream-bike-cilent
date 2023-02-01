@@ -14,6 +14,7 @@ import ReportedItems from "../pages/dashboard/ReportedItems/ReportedItems";
 import Home from "../pages/home/home/Home";
 
 import Login from "../pages/login/Login";
+import Products from "../pages/Products/Products";
 import SignUp from "../pages/register/SignUp";
 import ErrrorPage from "../pages/shared/error/ErrorPage";
 import AdminRoutes from "./private/adminRoute/AdminRoutes";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/products",
+        element: <Products />,
       },
       {
         path: "/signup",
