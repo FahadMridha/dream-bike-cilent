@@ -6,7 +6,7 @@ const AllProducts = () => {
   const products = useLoaderData();
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 m-5 lg:m-16">
         {products &&
           products.map((product) => (
             <ProductsCard key={product._id} product={product}></ProductsCard>

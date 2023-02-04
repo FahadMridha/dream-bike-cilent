@@ -131,7 +131,7 @@ const Login = () => {
             </div>
 
             <button
-              className="btn bg-emerald-400 hover:bg-emerald-500 w-full"
+              className="btn bg-emerald-600 hover:bg-emerald-500 w-full"
               value="Login"
               type="submit"
               disabled={loading}
@@ -158,16 +158,9 @@ const Login = () => {
 
           <button
             onClick={() => handlerGoogleSignIn(googleProvider)}
-            className="btn bg-emerald-400 hover:bg-emerald-500 w-full"
-            disabled={loading}
+            className="btn bg-emerald-600 hover:bg-emerald-500 w-full"
           >
-            {loading ? (
-              <span className="animate-pulse">
-                <SmallSpinner />
-              </span>
-            ) : (
-              "CONTINUE WITH GOOGLE"
-            )}
+            "CONTINUE WITH GOOGLE"
           </button>
         </div>
       </div>

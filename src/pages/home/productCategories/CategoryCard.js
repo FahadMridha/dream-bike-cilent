@@ -6,7 +6,7 @@ const CategoryCard = ({ category }) => {
   return (
     <div>
       <Link to={`/category/${categoryID}`}>
-        <div className="card card-compact bg-base-100 shadow-xl">
+        <div className="card card-compact bg-base-200 shadow-xl">
           <figure>
             <img className="h-40 object-cover" src={picture} alt="brand-logo" />
           </figure>

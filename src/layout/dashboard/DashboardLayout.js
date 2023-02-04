@@ -1,19 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../context/AuthPovider";
 import useAdmin from "../../hooks/useAdimn";
 import useBuyer from "../../hooks/useBuyer";
 import useSeller from "../../hooks/useSeller";
 // import { IoCaretForwardSharp } from "react-icons/fa";
+import { SlArrowRight } from "react-icons/sl";
 
 import Navbar from "../../pages/shared/navbar/Navbar";
 
 const DashboardLayout = () => {
+  const [open, setOpen] = useState(false);
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);
   const [isBuyer] = useBuyer(user?.email);
-  console.log(isSeller);
+  // console.log(isSeller);
 
   return (
     <div>
@@ -29,8 +31,9 @@ const DashboardLayout = () => {
           <label
             htmlFor="dashboard-dwawer"
             className="btn btn-primary drawer-button lg:hidden"
+            onClick={() => setOpen(!open)}
           >
-            {/* <IoCaretForwardSharp /> */}
+            <SlArrowRight className="w-4 h-4" />
           </label>
         </div>
         <div className="drawer-side">

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Offer = () => {
   return (
     <div>
-      <div className="p-6 m-8 py-12 dark:bg-violet-400 dark:text-gray-900">
+      <div className="p-6 lg:mx-8 my-32  dark:bg-violet-400 dark:text-gray-900">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <h2 className="text-center text-6xl tracking-tighter font-bold">

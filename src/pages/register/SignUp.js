@@ -90,108 +90,110 @@ const SignUp = () => {
   };
 
   return (
-    <div className="h-[800px] flex  justify-center items-center ">
-      <div className=" w-96 p-8 bg-green-500 rounded-lg">
-        <h3 className="text-xl text-center">Sign Up</h3>
-        <form onSubmit={handleSubmit(handlerSignUp)}>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text">Name</span>
-            </label>
+    <div className="bg-teal-900">
+      <div className="h-[800px] flex  justify-center items-center ">
+        <div className=" w-96 p-8 text-white rounded-lg">
+          <h3 className="text-3xl text-center">Sign Up</h3>
+          <form onSubmit={handleSubmit(handlerSignUp)}>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
 
+              <input
+                placeholder="Your Name"
+                type="text"
+                {...register("name", {
+                  required: "Name is required",
+                })}
+                className="input bg-teal-900 border-gray-500 w-full max-w-xs"
+              />
+              {errors.name && (
+                <p className="text-red-600">{errors.name.message}</p>
+              )}
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+
+              <input
+                placeholder="Your  email"
+                type="email"
+                {...register("email", {
+                  required: "Email is required",
+                })}
+                className="input bg-teal-900 border-gray-500 w-full max-w-xs"
+              />
+              {errors.email && (
+                <p className="text-red-600">{errors.email.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label className="label">
+                <span className="label-text">User Role</span>
+              </label>
+              <select
+                type="text"
+                {...register("role", {
+                  required: "Role is required",
+                })}
+                className="select bg-teal-900 border-gray-500 w-full max-w-xs mt-2"
+              >
+                <option></option>
+                <option>buyer</option>
+                <option>seller</option>
+              </select>
+              {errors.role && (
+                <p className="text-red-600">{errors.role.message}</p>
+              )}
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+
+              <input
+                placeholder="password"
+                type="password"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: { value: 6, message: "must be atleast 6 disits" },
+
+                  pattern: {
+                    value: /[A-Z]/,
+                    message: "password must be capital letter",
+                  },
+                })}
+                className="input bg-teal-900 border-gray-500 w-full mb-2  max-w-xs"
+              />
+              {errors.password && (
+                <p className="text-red-600 ">{errors.password.message}</p>
+              )}
+            </div>
             <input
-              placeholder="Your Name"
-              type="text"
-              {...register("name", {
-                required: "Name is required",
-              })}
-              className="input input-bordered w-full max-w-xs"
+              className="btn bg-emerald-600 hover:bg-emerald-500 w-full"
+              value="Sign Up"
+              type="submit"
             />
-            {errors.name && (
-              <p className="text-red-600">{errors.name.message}</p>
-            )}
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
+          </form>
+          {signupError && <p className="text-red-600">{signupError}</p>}
+          <p>
+            Alreday have an account ?
+            <Link to="/login" className=" text-lg font-semibold">
+              Please login
+            </Link>
+          </p>
+          <div className="divider">OR</div>
 
-            <input
-              placeholder="email"
-              type="email"
-              {...register("email", {
-                required: "Email is required",
-              })}
-              className="input input-bordered w-full max-w-xs"
-            />
-            {errors.email && (
-              <p className="text-red-600">{errors.email.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label className="label">
-              <span className="label-text">User Role</span>
-            </label>
-            <select
-              type="text"
-              {...register("role", {
-                required: "Role is required",
-              })}
-              className="select w-full max-w-xs mt-2"
-            >
-              <option></option>
-              <option>buyer</option>
-              <option>seller</option>
-            </select>
-            {errors.role && (
-              <p className="text-red-600">{errors.role.message}</p>
-            )}
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text">Password</span>
-            </label>
-
-            <input
-              placeholder="password"
-              type="password"
-              {...register("password", {
-                required: "Password is required",
-                minLength: { value: 6, message: "must be atleast 6 disits" },
-
-                pattern: {
-                  value: /[A-Z]/,
-                  message: "password must be capital letter",
-                },
-              })}
-              className="input input-bordered w-full max-w-xs"
-            />
-            {errors.password && (
-              <p className="text-red-600">{errors.password.message}</p>
-            )}
-          </div>
-          <input
-            className="btn bg-green-600 hover:bg-green-700 w-full mt-2"
-            value="Sign Up"
-            type="submit"
-          />
-        </form>
-        {signupError && <p className="text-red-600">{signupError}</p>}
-        <p>
-          Alreday have an account ?
-          <Link to="/login" className=" text-lg font-semibold">
-            Please login
-          </Link>
-        </p>
-        <div className="divider">OR</div>
-
-        <button
-          onClick={() => handlerGoogleSignUp(googleProvider)}
-          className="btn  bg-green-600 hover:bg-green-700 w-full "
-        >
-          CONTINUE WITH GOOGLE
-        </button>
+          <button
+            onClick={() => handlerGoogleSignUp(googleProvider)}
+            className="btn bg-emerald-600 hover:bg-emerald-500 w-full"
+          >
+            CONTINUE WITH GOOGLE
+          </button>
+        </div>
       </div>
     </div>
   );

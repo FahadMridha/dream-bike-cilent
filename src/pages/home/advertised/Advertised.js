@@ -28,7 +28,7 @@ const Advertised = () => {
       <h4 className="text-center text-5xl font-semibold text-green-700 m-4">
         New Arrivale
       </h4>
-      <p className="text-center">To buye visit our Products</p>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-8 mt-8 mb-8">
         {advertise &&
           advertise?.map((adv) => (
