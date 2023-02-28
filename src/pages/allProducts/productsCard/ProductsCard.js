@@ -34,6 +34,20 @@ const ProductsCard = ({ product }) => {
         <p>Year of Use: {product.yearOfUse}</p>
         <p>Post Date: {product.postTime}</p>
         <p>Seller's name: {product.sellerName}</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vero
+          voluptatum aspernatur veritatis? Cumque maxime eum mollitia, corrupti
+          ipsam quod maiores nobis, ullam perferendis, repellat quibusdam earum!
+          Tempora enim hic corrupti! Voluptas, nobis amet rem aliquam magnam
+          asperiores nam accusamus velit, eum odit dicta natus facilis nostrum
+          quasi deserunt impedit dolorem ea, numquam culpa delectus quis
+          cupiditate possimus? Corporis quam, dicta reiciendis labore
+          reprehenderit quae aperiam excepturi consectetur maiores officia
+          explicabo quia nobis pariatur sapiente, inventore voluptatem! Et
+          deserunt deleniti voluptate excepturi ex, incidunt rerum veniam!
+          Facere illo veniam laudantium temporibus cumque eum architecto minima
+          nostrum reprehenderit, a ullam quos?
+        </p>
 
         <div className="card-actions justify-end">
           <button
