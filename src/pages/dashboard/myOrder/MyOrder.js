@@ -56,9 +56,8 @@ const MyOrder = () => {
 
                   <td>
                     {booking.resalePrice && !booking.paid && (
-                      <Link to={`/dashboard/payment/${booking._id}`}>
-                        <button className="btn btn-primary btn-sm">Pay</button>
-                      </Link>
+                      // <Link to={`/dashboard/payment/${booking._id}`}>
+                      <button className="btn btn-primary btn-sm">Pay</button>
                     )}
                     {booking.resalePrice && booking.paid && (
                       <button className="btn btn-success btn-sm">Paid</button>
