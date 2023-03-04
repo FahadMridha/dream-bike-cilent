@@ -27,20 +27,6 @@ const ProductsCard = ({ product }) => {
         <img src={product.image} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-          illo vitae necessitatibus explicabo, expedita harum quasi alias
-          consequatur a odit dicta dolorum non ipsam repudiandae nisi magnam
-          laborum exercitationem ut voluptatibus eveniet! Harum earum, ut veniam
-          fugit vero dolorem doloribus cupiditate! Est ullam recusandae tempora
-          dolore ratione sapiente, consequatur, impedit iure accusantium tenetur
-          quas vitae voluptatibus fugit assumenda! Deleniti, voluptatem
-          dignissimos. Unde eum dolorem consectetur quod! Dolore magnam culpa
-          dicta officiis repudiandae nulla sequi dolor modi nisi. Deleniti in
-          quam recusandae perspiciatis aliquam. Nihil alias hic cum, et placeat,
-          minus omnis, voluptatem iusto ex adipisci ipsam expedita delectus
-          cumque quas!
-        </p>
         <h2 className="card-title">Name: {product.ProductName}</h2>
         <p>Location: {product.location}</p>
         <p>Resale Price :{product.resalePrice} BDT</p>
